@@ -1,0 +1,58 @@
+{
+  "name": "genpark-personal-agent-respiratory-quotient-fat-max-pacing-skill",
+  "version": "1.0.0",
+  "title": "Respiratory Exchange Ratio (RER) & FatMax Pacing Sentinel Skill",
+  "description": "Substrate oxidation ratio (fat vs carb kcal/min) from respiratory exchange ratio (RER/RQ), FatMax training zone, and metabolic flexibility score. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "fatmax",
+    "rer",
+    "respiratory-quotient",
+    "metabolic-flexibility",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_substrate_oxidation_rates",
+      "description": "Calculate grams and percentages of fat vs carbohydrate oxidation from VO2 (L/min) and VCO2 (L/min).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vo2_liters_min": {
+            "type": "number"
+          },
+          "vco2_liters_min": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "vo2_liters_min",
+          "vco2_liters_min"
+        ]
+      }
+    },
+    {
+      "name": "identify_fatmax_endurance_power_zone",
+      "description": "Identify watt / pace sweet-spot for maximum grams per hour of lipid oxidation to spare glycogen.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "peak_fat_oxidation_watts": {
+            "type": "integer"
+          },
+          "ftp_watts": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "peak_fat_oxidation_watts",
+          "ftp_watts"
+        ]
+      }
+    }
+  ]
+}
